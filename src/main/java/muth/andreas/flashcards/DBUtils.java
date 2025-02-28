@@ -8,7 +8,7 @@ import java.sql.Statement;
 public class DBUtils {
     public static Card getCardByID(int id) {
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mariadb://localhost:3306/flashcards", "admin", "password");
+            Connection connection = DriverManager.getConnection(System.getenv("DB_URL"), System.getenv("DB_USER"), System.getenv("DB_PASSWORD"));
             Statement statement = connection.createStatement();
 
             statement.execute("SELECT * FROM flashcards WHERE id = " + id);
@@ -27,7 +27,7 @@ public class DBUtils {
 
     public static void addCard(String question, String answer) {
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mariadb://localhost:3306/flashcards", "admin", "password");
+            Connection connection = DriverManager.getConnection(System.getenv("DB_URL"), System.getenv("DB_USER"), System.getenv("DB_PASSWORD"));
             Statement statement = connection.createStatement();
 
             statement.execute("INSERT INTO flashcards (question, answer) VALUES ('" + question + "', '" + answer + "')");
@@ -41,7 +41,7 @@ public class DBUtils {
 
     public static int getCardCount() {
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mariadb://localhost:3306/flashcards", "admin", "password");
+            Connection connection = DriverManager.getConnection(System.getenv("DB_URL"), System.getenv("DB_USER"), System.getenv("DB_PASSWORD"));
             Statement statement = connection.createStatement();
 
             statement.execute("SELECT COUNT(*) FROM flashcards");

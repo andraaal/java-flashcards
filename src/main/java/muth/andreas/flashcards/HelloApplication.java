@@ -19,8 +19,6 @@ public class HelloApplication extends Application {
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
-
-        // getDB();
     }
 
     private void getDB() {
