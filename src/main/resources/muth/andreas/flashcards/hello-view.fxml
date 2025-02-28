@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="BOTTOM_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="muth.andreas.flashcards.MainController">
+    <children>
+        <Label fx:id="cardLabel" alignment="CENTER" text="Question here">
+            <font>
+                <Font size="24.0"/>
+            </font>
+        </Label>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+            <children>
+                <Button fx:id="prevButton" mnemonicParsing="false" text="Previous Answer" onAction="#onPreviousButtonClick"/>
+                <Button fx:id="flipCardButton" mnemonicParsing="false" onAction="#onFlipButtonClick"
+                        text="Flip Card"/>
+                <Button fx:id="nextButton" mnemonicParsing="false" text="Next Answer" onAction="#onNextButtonClick"/>
+            </children>
+        </HBox>
+        <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="600.0" spacing="5.0"
+              style="-fx-background-color: #dddddd;">
+            <children>
+                <TextField fx:id="questionInput" promptText="Enter Question"/>
+                <TextField fx:id="answerInput" promptText="Enter Answer"/>
+                <Button fx:id="addCardButton" alignment="CENTER" mnemonicParsing="false" text="Add Flashcard"
+                        onAction="#onAddButtonClick"/>
+            </children>
+            <padding>
+                <Insets left="200.0" right="200.0"/>
+            </padding>
+            <VBox.margin>
+                <Insets bottom="20.0"/>
+            </VBox.margin>
+        </VBox>
+    </children>
+</VBox>
