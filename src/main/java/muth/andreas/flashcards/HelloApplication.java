@@ -25,13 +25,10 @@ public class HelloApplication extends Application {
 
     private void getDB() {
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mariadb://localhost:3306/flashcards", "admin", "password");
+            Connection connection = DriverManager.getConnection(System.getenv("DB_URL"), System.getenv("DB_User"), System.getenv("DB_PASSWORD"));
             Statement statement = connection.createStatement();
 
-            // statement.execute("CREATE TABLE IF NOT EXISTS flashcards (id INT PRIMARY KEY AUTO_INCREMENT, question VARCHAR(255), answer VARCHAR(255))");
-
-            // statement.execute("INSERT INTO flashcards (question, answer) VALUES ('What is the answer to life, the universe, and everything?', '42')");
-            // statement.execute("INSERT INTO flashcards (question, answer) VALUES ('What is the capital of France?', 'Paris')");
+            statement.execute("CREATE TABLE IF NOT EXISTS flashcards (id INT PRIMARY KEY AUTO_INCREMENT, question VARCHAR(255), answer VARCHAR(255))");
 
             statement.execute("SELECT * FROM flashcards");
             statement.getResultSet().next();

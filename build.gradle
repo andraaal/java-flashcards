@@ -56,3 +56,15 @@ jlink {
 jlinkZip {
     group = 'distribution'
 }
+
+tasks.named('run') {
+    doFirst {
+        def envFile = file('.env')
+        if (envFile.exists()) {
+            envFile.eachLine { line ->
+                def (key, value) = line.tokenize('=')
+                environment key, value
+            }
+        }
+    }
+}
