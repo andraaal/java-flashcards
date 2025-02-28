@@ -22,12 +22,4 @@ public class Card {
     public int getId() {
         return id;
     }
-
-    public void setQuestion(String question) {
-        this.question = question;
-    }
-
-    public void setAnswer(String answer) {
-        this.answer = answer;
-    }
 }
